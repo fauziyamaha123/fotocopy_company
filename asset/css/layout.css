@@ -1,0 +1,10 @@
+.container{width:90%;margin:auto}
+.navbar{background:#fff;border-bottom:1px solid #ddd}
+.navbar .container{display:flex;justify-content:space-between;padding:15px}
+.hero{text-align:center;padding:80px;background:#1e3a8a;color:#fff}
+.section{padding:50px;text-align:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.card{padding:20px;background:#fff;border-radius:6px;box-shadow:0 5px 10px rgba(0,0,0,.1)}
+.footer{text-align:center;padding:15px;background:#111;color:#fff}
+.card:hover{transform:translateY(-5px);transition:.3s}
+img{margin-top:15px;border-radius:6px}
