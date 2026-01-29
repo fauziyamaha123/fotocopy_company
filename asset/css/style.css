@@ -42,10 +42,30 @@ body {
     padding: 15px 0;
 }
 
-.logo {
-    font-weight: bold;
-    font-size: 20px;
+.logo img {
+  /* Batasi tinggi maksimal agar header tidak melar ke bawah */
+  height: 80px; 
+  
+  /* Pastikan lebar menyesuaikan secara otomatis */
+  width: auto; 
+  
+  /* Tambahkan batas lebar maksimal agar tidak menabrak menu navigasi */
+  max-width: 200px; 
+  
+  /* Menjaga kualitas gambar saat di-resize */
+  object-fit: contain; 
+  
+  display: block;
 }
+
+/* Responsif: Kecilkan sedikit logo di layar HP agar menu tidak berantakan */
+@media (max-width: 768px) {
+  .logo img {
+    height: 45px;
+    max-width: 150px;
+  }
+}
+
 
 nav a {
     margin-left: 20px;
@@ -149,3 +169,77 @@ nav a:hover {
     padding: 15px 0;
     margin-top: 50px;
 }
+/* NAV FLEX */
+.nav-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 500;
+}
+
+/* CART */
+.cart {
+  position: relative;
+  color: var(--dark);
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: var(--accent);
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  font-size: 22px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    width: 200px;
+    padding: 15px;
+    display: none;
+    box-shadow: 0 10px 20px rgba(0,0,0,.1);
+  }
+
+  nav a {
+    margin: 10px 0;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
