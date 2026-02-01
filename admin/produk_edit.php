@@ -13,7 +13,7 @@ if ($_POST) {
 
   if ($_FILES['foto']['name']) {
     $foto = $_FILES['foto']['name'];
-    move_uploaded_file($_FILES['foto']['tmp_name'], "../uploads/$foto");
+    move_uploaded_file($_FILES['foto']['tmp_name'], "../upload/$foto");
     mysqli_query($conn, "UPDATE produk SET foto='$foto' WHERE id=$id");
   }
 
@@ -33,7 +33,7 @@ if ($_POST) {
   <input name="nama" value="<?= $p['nama_produk'] ?>"><br>
   <input name="harga" type="number" value="<?= $p['harga'] ?>"><br>
   <textarea name="deskripsi"><?= $p['deskripsi'] ?></textarea><br>
-  <img src="../uploads/<?= $p['foto'] ?>" width="100"><br>
+  <img src="../upload/<?= $p['foto'] ?>" width="100"><br>
   <input type="file" name="foto"><br>
   <button>Update</button>
 </form>
