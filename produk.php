@@ -11,13 +11,18 @@ $q = mysqli_query($conn, "SELECT * FROM produk ORDER BY created_at DESC");
 <div class="grid">
 <?php while($p = mysqli_fetch_assoc($q)) : ?>
   <a class="card" href="detail-produk.php?id=<?= $p['id'] ?>">
+
+    <div class="img-box">
+        <img src="uploads/produk/<?= $p['gambar'] ?>" alt="<?= $p['nama_produk'] ?>">
+    </div>
+
     <h3><?= $p['nama_produk'] ?></h3>
     <p><?= $p['merk'] ?> • <?= $p['kondisi'] ?></p>
     <strong>Rp <?= number_format($p['harga'],0,',','.') ?></strong>
+
   </a>
 <?php endwhile; ?>
-</div>
 
-</section>
+</div>
 
 <?php include 'partials/footer.php'; ?>
