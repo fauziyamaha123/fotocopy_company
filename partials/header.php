@@ -16,7 +16,7 @@
 <header class="navbar">
   <div class="nav-container">
     <div class="logo">
-      <span>📄</span> Fotocopy<span>Co</span>
+      <span></span> Fotocopy<span>Co</span>
     </div>
 
     <nav>

@@ -12,22 +12,37 @@ include_once __DIR__ . '/config/database.php';
   </div>
 </section>
 
-<!-- PRODUK -->
 <section class="section" id="produk">
-  <h2>Produk Unggulan</h2>
+  <div class="container">
+    <div class="section-header">
+      <h2>Produk Unggulan</h2>
+      <p>Kualitas terbaik untuk menunjang produktivitas Anda</p>
+    </div>
 
-  <div class="produk-grid">
-    <?php
-    $q = mysqli_query($conn, "SELECT * FROM produk");
-    while ($p = mysqli_fetch_assoc($q)) {
+    <div class="produk-grid">
+      <?php
+      $q = mysqli_query($conn, "SELECT * FROM produk");
+      while ($p = mysqli_fetch_assoc($q)) {
+      ?>
+        <div class="produk-card">
+          <div class="produk-img">
+            <img src="upload/<?= htmlspecialchars($p['foto']) ?>" alt="<?= htmlspecialchars($p['nama_produk']) ?>">
+          </div>
+          <div class="produk-info">
+            <h4><?= htmlspecialchars($p['nama_produk']) ?></h4>
+            <p class="harga">Rp <?= number_format($p['harga'], 0, ',', '.') ?></p>
+            <p class="deskripsi"><?= nl2br(htmlspecialchars($p['deskripsi'])) ?></p>
+    
+          <?php 
+        $pesan_wa = urlencode("Halo FotocopyCo, saya ingin bertanya tentang produk: " . $p['nama_produk']);
     ?>
-      <div class="produk-card">
-        <img src="upload/<?= htmlspecialchars($p['foto']) ?>" alt="<?= htmlspecialchars($p['nama_produk']) ?>">
-        <h4><?= htmlspecialchars($p['nama_produk']) ?></h4>
-        <p class="harga">Rp <?= number_format($p['harga']) ?></p>
-        <p><?= nl2br(htmlspecialchars($p['deskripsi'])) ?></p>
-      </div>
-    <?php } ?>
+    <a href="https://wa.me/628123456789?text=<?= $pesan_wa ?>" class="btn-wa" target="_blank">
+        <i class="fab fa-whatsapp"></i> Tanya Detail Produk
+    </a>
+</div>
+        </div>
+      <?php } ?>
+    </div>
   </div>
 </section>
 
